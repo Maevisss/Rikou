@@ -1,0 +1,38 @@
+--- Allgemein ---
+R!info - Erhalte die Info Nachricht
+R!com - Erhalte eine Liste aller Befehle
+R!pb - GDrive Link mit SFD Profilbildern
+R!code - MeiMeis
+R!happy - Zeige allen das du glücklich bist
+R!yuki - Yukibohra soll endlich das Rikou Artwork fertig stellen
+
+-- Zufälle --
+R!coin - Werf ne Münze
+R!randnum + Obergrenze - Zufallszahl 
+R!dice 4 - Zufall zwischen 1 und 4
+R!dice 6 -     1 und 6
+R!dice 8 -     1 und 8
+R!dice 10 -    1 und 10
+R!dice 12 -    1 und 12
+R!dice 20 -    1 und 20
+R!dice 100 -   1 und 100 in Zehner
+
+-- AirSoft Gear --
+R!showgear - Zeige wer alles ein Gear hat
+R!creategear - Erstelle deine Gear Datei
+R!mygear - Lass dir dein Gear anzeigen
+R!seegear - Siehe dir das Gear von den anderen an
+R!addgear - Füge etwas zu deinem Gear hinzu
+R!removegear - Entferne etwas aus deinem Gear
+R!deletegear - Lösche deine Gear Datei
+
+-- Tarkov Keys --
+R!keys - Poste die Liste der nutzlosen Schlüssel
+R!addkey - Füge ein Schlüssel der Liste hinzu
+R!removekey - Entferne ein Schlüssel von der Liste
+
+
+-- Moderation --
+R!rulemsg - Generiere Wilkommensnachricht
+R!rolemsg - Generiere Nachricht zur Rollenverteilung
+
