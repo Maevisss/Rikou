@@ -1,0 +1,28 @@
+--- Allgemein ---
+!info - Erhalte die Info Nachricht
+!com - Erhalte eine Liste aller Befehle
+!pb - GDrive Link mit SFD Profilbildern
+!code - MeiMeis
+!happy - Zeige allen das du glücklich bist
+
+-- Zufälle --
+!coin - Werf ne Münze
+!randnum + Obergrenze - Zufallszahl (nur ganze zahlen)
+
+-- AirSoft Gear --
+!showgear - Zeige wer alles ein Gear hat
+!creategear - Erstelle deine Gear Datei
+!mygear - Lass dir dein Gear anzeigen
+!seegear - Siehe dir das Gear von den anderen an
+!addgear - Füge etwas zu deinem Gear hinzu
+!removegear - Entferne etwas aus deinem Gear
+!deletegear - Lösche deine Gear Datei
+
+-- Tarkov Keys --
+!keys - Poste die Liste der nutzlosen Schlüssel
+!keyadd - Füge ein Schlüssel der Liste hinzu
+!removekey - Entferne ein Schlüssel von der Liste
+
+
+-- Moderation --
+!rolemsg - Generiere Nachricht zur Rollenverteilung
