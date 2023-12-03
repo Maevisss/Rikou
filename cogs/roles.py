@@ -1,31 +1,33 @@
+#---------- Dependencies ----------
+
+
 import discord
 from discord.ext import commands
+
+
+#---------- Array with all roles and the matching emote ----------
+
+
+rolelist = [["XBOX", "XBOX"], ["PlayStation", "PlayStation"], ["Nintendo", "Nintendo"], ["PC", "Computer"],
+                       ["GamePass", "GamePass"], ["AirSoft", "CatGun"], ["YouTube", "YouTube"], ["Twitch", "Twitch"],
+                       ["Anime", "RemPout"], ["IT", "Server"], ["Developer", "Terminal"], ["VR", "VR"],
+                       ["Schwarzfuchs", "SFD"], ["GameCentral", "GC"]]
+
+
+#---------- Cog setup 1/2 ----------
+
 
 class roles (commands.Cog) :
     def __init__(self, bot, *args, **kwargs) :
         self.bot = bot
 
-    
-    #---------- Generate messages to react ----------
+
+    #---------- Generate message for roles ----------
 
 
     @commands.command()
-    #Create message for welcome channel - main role
-    async def rulemsg(self, ctx) :
-        role = "836504687766405140" #Developer role only
-        user = ctx.author
-        
-        if discord.utils.get(user.roles, name = 'Developer') is None : 
-            await ctx.channel.send('Du hast keine Berechtigun diesen Befehl zu nutzen.')
-        else :
-            with open('files/txt/welcome_message.txt', 'r', encoding = 'utf-8') as ReadyFile :
-                Rollen = await ctx.channel.send(ReadyFile.read())
-            await Rollen.add_reaction('<SFD_Logo:883728440291889202>')
-            
-    @commands.command()
-    #Create message for intern roles
     async def rolemsg(self, ctx) :
-        role = "836504687766405140" #Developer role only
+        role = "1063530524259405875" #For developer use only
         user = ctx.author
         
         if discord.utils.get(user.roles, name = 'Developer') is None :
@@ -34,15 +36,22 @@ class roles (commands.Cog) :
             with open('files/txt/role_message.txt', 'r', encoding = 'utf-8') as RoleFile :
                 RoleMessage = await ctx.channel.send(RoleFile.read())
 
-            await RoleMessage.add_reaction('<:XBOXKonsole:847372038301155359>')
-            await RoleMessage.add_reaction('<:PlayStation:847368856381292565>')
-            await RoleMessage.add_reaction('<:Nintendo:847369837005111326>')
-            await RoleMessage.add_reaction('<:PC:847370184817508352>')
-            await RoleMessage.add_reaction('<:XBOXGamePass:847368497272061992>')
-            await RoleMessage.add_reaction('<:CatGun:847370798259240980>')
-            await RoleMessage.add_reaction('<:YouTube:848996415690637403>')
-            await RoleMessage.add_reaction('<:Twitch:848996435134251049>')
-            await RoleMessage.add_reaction('<:Code:930747586992816128>')
+            #Message.add_Emoji(Name:ID)
+            await RoleMessage.add_reaction('<:XBOX:1061629245559935017>')
+            await RoleMessage.add_reaction('<:PlayStation:1061629107202437151>')
+            await RoleMessage.add_reaction('<:Nintendo:1061629069764075601>')
+            await RoleMessage.add_reaction('<:Computer:1061629050281541712>')
+            await RoleMessage.add_reaction('<:GamePass:1061629205516927027>')
+            await RoleMessage.add_reaction('<:CatGun:1061633180328787988>>')
+            await RoleMessage.add_reaction('<:YouTube:1063541188071796777>')
+            await RoleMessage.add_reaction('<:Twitch:1063541229138223164>')
+            await RoleMessage.add_reaction('<:RemPout:1063551455899951145>')
+            await RoleMessage.add_reaction('<:Server:1063554322891284570>')
+            await RoleMessage.add_reaction('<:Terminal:1063541718370242572>')
+            await RoleMessage.add_reaction('<:VR:1166353764563816489>')
+            #Old server roles
+            await RoleMessage.add_reaction('<:SFD:1063542308169064528>')
+            await RoleMessage.add_reaction('<:GC:1063542584749871225>')
 
 
     #---------- Add role on reaction ----------
@@ -51,61 +60,47 @@ class roles (commands.Cog) :
     @commands.Cog.listener()
     #Add roles when reaction is set
     async def on_raw_reaction_add(self, payload) :
-        
-        #Reaction welcome message
-        with open('files/txt/msg_id_ext.txt', 'r') as ext_id :
-            eid = ext_id.read()
-        
-        message_id = payload.message_id
-        if str(message_id) == str(eid) :
-            guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
-            if payload.emoji.name == "SFD_Logo" :
-                role = discord.utils.get(guild.roles, name='SFD')
-                await payload.member.add_roles(role)
 
         #Reaction on role message
         with open('files/txt/msg_id_int.txt', 'r') as int_id :
             iid = int_id.read()
 
         message_id = payload.message_id
-        if str(message_id) == str(iid) :
+
+        if str(message_id) == str(iid) : #Needs to be static on live bot
             guild_id = payload.guild_id
             guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
-            if payload.emoji.name == "XBOXKonsole" :
-                role = discord.utils.get(guild.roles, name='XBOX')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "PlayStation" :
-                role = discord.utils.get(guild.roles, name='PlayStation')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "Nintendo" :
-                role = discord.utils.get(guild.roles, name='Nintendo')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "PC" :
-                role = discord.utils.get(guild.roles, name='PC')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "XBOXGamePass" :
-                role = discord.utils.get(guild.roles, name='GamePass')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "CatGun" :
-                role = discord.utils.get(guild.roles, name='AirSoft')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "Script" :
-                role = discord.utils.get(guild.roles, name='FüllerFechten')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "YouTube" :
-                role = discord.utils.get(guild.roles, name='YouTube')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "Twitch" :
-                role = discord.utils.get(guild.roles, name='Twitch')
-                await payload.member.add_roles(role)
-            elif payload.emoji.name == "Code" :
-                role = discord.utils.get(guild.roles, name='Developer')
-                await payload.member.add_roles(role)
+            for element in rolelist:
+                if payload.emoji.name == element[1]:
+                    role = discord.utils.get(guild.roles, name = element[0])
+                    await payload.member.add_roles(role)
 
-        
-#Setup cog
-def setup(bot):
-    bot.add_cog(roles(bot))
+
+    @commands.Cog.listener()
+    #Remove roles when reaction is removed
+    async def on_raw_reaction_remove(self, payload):
+
+        #Reaction on role message
+        with open('files/txt/msg_id_int.txt', 'r') as int_id:
+            iid = int_id.read()
+        message_id = payload.message_id
+
+
+        if str(message_id) == str(iid):  #Needs to be static on live bot
+            guild_id = payload.guild_id
+            guild = discord.utils.find(lambda g: g.id == guild_id, self.bot.guilds)
+            member = await guild.fetch_member(payload.user_id) #Fetch member id, needed for removal
+
+            for element in rolelist:
+                if payload.emoji.name == element[1]:
+                    role = discord.utils.get(guild.roles, name=element[0])
+                    await member.remove_roles(role)
+
+
+#---------- Cog setup 2/2 ----------
+
+
+async def setup(bot):
+    await bot.add_cog(roles(bot))
     print('Roles wurde geladen')

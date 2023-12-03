@@ -101,6 +101,6 @@ class gear (commands.Cog) :
 
 
 #Setup cog
-def setup(bot):
-    bot.add_cog(gear(bot))
+async def setup(bot) :
+    await bot.add_cog(gear(bot))
     print('Gear wurde geladen')

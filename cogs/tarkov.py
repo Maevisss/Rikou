@@ -10,8 +10,8 @@ class tarkov (commands.Cog) :
     #Show list of useless eft keys
     async def keys(self, ctx) :
         with open('files/txt/eft_keys.txt', 'r') as file :
-            keys = file.read()
-        await ctx.channel.send(keys)
+            keylist = file.read()
+        await ctx.channel.send(keylist)
 
     @commands.command()
     #Add key to file
@@ -24,19 +24,19 @@ class tarkov (commands.Cog) :
     #Remove key from file
     async def removekey(self, ctx, *, arg) :
         with open('files/txt/eft_keys.txt', 'r') as file :
-                keys = file.read()
-                keylist = keys.split('\n')
-                if arg in keylist :
-                    keylist.remove(str(arg))
-                    with open('files/txt/eft_keys.txt', 'w') as file :
-                        for line in keylist :
-                            file.write('%s\n' % line )
+            keyfile = file.read()
+            keylist = keyfile.split('\n')
+            if arg in keylist :
+                keylist.remove(str(arg))
+                with open('files/txt/eft_keys.txt', 'w') as file :
+                    for line in keylist :
+                        file.write('%s\n' % line )
                     await ctx.channel.send(arg + ' wurde aus der Liste entfernt.')
-                else :
-                    await ctx.channel.send(arg + ' ist nicht in der Liste.')
+            else :
+                await ctx.channel.send(arg + ' ist nicht in der Liste.')
 
 
 #Setup cog
-def setup(bot):
-    bot.add_cog(tarkov(bot))
+async def setup(bot):
+    await bot.add_cog(tarkov(bot))
     print('Tarkov wurde geladen')

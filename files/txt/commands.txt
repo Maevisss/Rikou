@@ -20,7 +20,7 @@
 
 -- Tarkov Keys --
 !keys - Poste die Liste der nutzlosen Schlüssel
-!keyadd - Füge ein Schlüssel der Liste hinzu
+!addkey - Füge ein Schlüssel der Liste hinzu
 !removekey - Entferne ein Schlüssel von der Liste
 
 
