@@ -11,7 +11,7 @@ from discord.ext import commands
 rolelist = [["XBOX", "XBOX"], ["PlayStation", "PlayStation"], ["Nintendo", "Nintendo"], ["PC", "Computer"],
                        ["GamePass", "GamePass"], ["AirSoft", "CatGun"], ["YouTube", "YouTube"], ["Twitch", "Twitch"],
                        ["Anime", "RemPout"], ["IT", "Server"], ["Developer", "Terminal"], ["VR", "VR"],
-                       ["Schwarzfuchs", "SFD"], ["GameCentral", "GC"]]
+                       ["Schwarzfuchs", "SFD"], ["GameCentral", "GC"], ["Minecraft", "FoxSpin"]]
 
 
 #---------- Cog setup 1/2 ----------
@@ -52,6 +52,7 @@ class roles (commands.Cog) :
             #Old server roles
             await RoleMessage.add_reaction('<:SFD:1063542308169064528>')
             await RoleMessage.add_reaction('<:GC:1063542584749871225>')
+            await RoleMessage.add_reaction('<:FoxSpin:1061632987944468592>')
 
 
     #---------- Add role on reaction ----------

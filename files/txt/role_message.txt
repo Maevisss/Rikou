@@ -16,6 +16,8 @@ Falls du von einem der vorherigen Server bist, zeig uns von welchem.
 <:SFD:1063542308169064528> Schwarzfuchs
 <:GC:1063542584749871225> GameCentral
 
+<:FoxSpin:1061632987944468592> Minecraft
+
 Alle Rollen außer Developer sind nur kosmetisch.
 Es kann vorkommen das diese Nachricht neu generiert wird.
 Falls du bereits die Rollen hast musst du nicht erneut reagieren.

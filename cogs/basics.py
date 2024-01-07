@@ -48,6 +48,11 @@ class basics (commands.Cog) :
             await member.send(CommandFile.read())
         await ctx.channel.send('Du hast eine DM mit der Liste erhalte.')
 
+    @commands.command()
+    #MC Project Sevrer IP
+    async def ip(self, ctx) :
+        await ctx.channel.send('v2202312213075249649.nicesrv.de')
+
 
     #---------- Commands with random ----------
 
