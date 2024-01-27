@@ -22,7 +22,7 @@ from discord.ext.commands import CommandNotFound
 Mode = 1
 # == 0 is Live Bot
 # != 0 is Dev Bot 
-if Mode == 0 :
+if Mode == 1 :
     with open('files/TokenLive.txt', 'r') as TokenFile :
         Token = TokenFile.read() 
         prefix = "!"

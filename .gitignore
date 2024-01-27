@@ -3,3 +3,12 @@ TokenLive.txt
 TokenDev.txt
 files/TokenLive.txt
 files/TokenDev.txt
+
+twitch_secret.txt
+twitch_client_id.txt
+twitch_oauth_token.txt
+files/txt/twitch_secret.txt
+files/txt/twitch_client_id.txt
+files/txt/twitch_oauth_token.txt
+
+__pycache__/
