@@ -1,5 +1,5 @@
-#based on code by vojay-dev
-#Get the Twitch OAuth Token and replace the old with the new one
+#Based on code by vojay-dev
+#Get the Twitch OAuth Token and/or replace the old with the new one
 
 import requests
 
