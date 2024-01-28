@@ -14,8 +14,10 @@ class basics (commands.Cog) :
         self.bot = bot
         
         
+
     #---------- Basic commands ----------
         
+    
     
     @commands.command()
     #Sends link to GDrive Folder with Schwarzfuchs related profile pictures
