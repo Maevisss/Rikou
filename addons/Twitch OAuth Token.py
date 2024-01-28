@@ -1,20 +1,18 @@
 #Based on code by vojay-dev
 #Get the Twitch OAuth Token and replace the old one
 
+import json
 import requests
 
 def get_access_token() :
-        with open('files/txt/twitch_client_id.txt', 'r', encoding = 'utf-8') as TwitchClientID :
-            ClientID = (TwitchClientID.read())
-
-        with open('files/txt/twitch_secret.txt', 'r', encoding = 'utf-8') as TwitchClientSecret :
-            ClientSecret = (TwitchClientSecret.read())
+     with open("files/txt/config.json") as twitch_config :
+        config = json.load(twitch_config)
 
         values = {
-            "client_id" : ClientID,
-            "client_secret" : ClientSecret,
-            "grant_type" : "client_credentials"
-            }
+             "client_id" : config["client_id"],
+             "client_secret" : config["client_secret"],
+             "grant_type" : "client_credentials"
+        }
         
 
         response = requests.post("https://id.twitch.tv/oauth2/token", params = values)
