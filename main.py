@@ -1,13 +1,14 @@
 #Rikou is a simple, multi-purpose discord bot with server specific features.
 #Its pointless to invite this bot to your server, but you can use this as template for your own bot.
 
-#Developed by Maevisss (mein developer), LeTak (better eveloper), and Panzerband1337 (I just want the badge inactive developer)
+#Developed by Maevisss (main developer), LeTak (better eveloper), and Panzerband1337 (I just want the badge inactive developer)
 
 
 #---------- Dependencies ----------
 
 
 import os
+import json
 import discord
 import asyncio
 from discord.ext import commands
@@ -19,17 +20,16 @@ from discord.ext.commands import CommandNotFound
 #---------- Config ----------
 
 
-Mode = 1
-# == 0 is Live Bot
-# != 0 is Dev Bot 
+with open("files/config.json") as config_file:
+    config = json.load(config_file)
+
+Mode = config["Mode"]
 if Mode == 1 :
-    with open('files/TokenLive.txt', 'r') as TokenFile :
-        Token = TokenFile.read() 
-        prefix = "!"
+    Token = config["TokenLive"]
+    prefix = "!"
 else :
-    with open('files/TokenDev.txt', 'r') as TokenFile :
-        Token = TokenFile.read() 
-        prefix = "<"
+    Token = config["TokenDev"]
+    prefix = "^"
 
 bot = commands.Bot(command_prefix = prefix, intents = discord.Intents.all())
 

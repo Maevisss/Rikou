@@ -1,12 +1,11 @@
+#Code by vojay-dev
 #---------- Dependencies ----------
 
 
-import sys
 import discord
 from discord.ext import commands
 from discord.ext.tasks import loop
-
-from Twitch import get_notifications
+from TwitchAPI import get_notifications
 
 
 
@@ -21,18 +20,22 @@ class twitch (commands.Cog) :
 
 
     #---------- Twitch notification ----------
-        
+       
 
-
-        @loop(seconds=180)
+        @loop(seconds=60)
         async def check_streamer() :
+            await self.bot.wait_until_ready()
             channel = bot.get_channel(1064994193589674045)
             notifications = get_notifications()
+            await channel.send(notifications)
+            await channel.send("{} ist jetzt online!".format(notification["users_login"]))#, notification))
+            
             for notification in notifications :
-                await channel.send("{} ist jetzt online! {}".format(notification["users_login"], notification))
+                print("check2")
+                print(str("{} ist jetzt online! {}".format(notification["users_login"], notification)))
+                #await channel.send("{} ist jetzt online! : {}".format(notification["users_login"], notification))
                 
         check_streamer.start()
-
 
 
 

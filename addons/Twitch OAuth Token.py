@@ -5,7 +5,7 @@ import json
 import requests
 
 def get_access_token() :
-     with open("files/txt/config.json") as twitch_config :
+     with open("files/config.json") as twitch_config :
         config = json.load(twitch_config)
 
         values = {
@@ -17,15 +17,7 @@ def get_access_token() :
 
         response = requests.post("https://id.twitch.tv/oauth2/token", params = values)
         access_token = response.json()["access_token"]
-
-        with open('files/txt/twitch_oauth_token.txt', 'a') as file :
-                file.write(access_token)
         return access_token
 
 access_token = get_access_token()
 print(access_token)
-
-open('files/txt/twitch_oauth_token.txt', 'w')
-with open('files/txt/twitch_oauth_token.txt', 'a') as file :
-    file.write(access_token)
-    print("Wrote Twitch OAuth token to file!")

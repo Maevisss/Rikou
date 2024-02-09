@@ -1,12 +1,4 @@
-Token*
-TokenLive.txt
-TokenDev.txt
-files/TokenLive.txt
-files/TokenDev.txt
-
 config.json
-files/txt/config.json
-twitch_oauth_token.txt
-files/txt/twitch_oauth_token.txt
+files/config.json
 
 __pycache__/
