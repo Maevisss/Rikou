@@ -72,15 +72,13 @@ async def on_command_error(ctx, error) :
 async def on_message(message) :
     if message.author == bot.user :
         return
-    else :
-        #Just dont ask...
-        if 'loli' in message.content.lower() :
-            await message.channel.send('<:MatsuLewd:1061639068645068842>')
-        elif 'lolis' in message.content.lower() :
-            await message.channel.send('<:MatsuLewd:1061639068645068842>')
 
-        #Prevents that on_message kills all commands
-        await bot.process_commands(message)
+    #Just dont ask...
+    if 'loli' in message.content.lower() or 'lolis' in message.content.lower():
+         await message.channel.send('<:MatsuLewd:1061639068645068842>')
+
+    #Prevents that on_message kills all commands
+    await bot.process_commands(message)
 
 
 asyncio.run(main())
